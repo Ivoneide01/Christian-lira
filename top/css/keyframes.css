@@ -1,0 +1,65 @@
+/*AnimaÃ§Ã£o na area que atuo/pretendo*/
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80%;
+        border-right: 5px solid rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes blinkCursor {
+    20% {
+        border-right-color: transparent;
+    }
+    80% {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+}
+
+@keyframes animanomebefore {
+    from {
+        left: -120px;
+        opacity: -220;
+    }
+}
+
+
+/*AnimaÃ§Ã£o no meu nome*/
+
+@keyframes animanome {
+    from {
+        left: -120px;
+        opacity: -220;
+    }
+}
+
+
+/*  animaÃ§Ã£o na parte onde colo cidade,curso...*/
+
+@keyframes animaSobre {
+    from {
+        left: -120px;
+        opacity: -220;
+    }
+}
+
+[data-anime] {
+    opacity: 0;
+    transition: .8s;
+}
+
+[data-anime="left"] {
+    transform: translate3d(-10%, 0, 0);
+}
+
+[data-anime="right"] {
+    transform: translate3d(10%, 0, 0);
+}
+
+[data-anime].animate {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}

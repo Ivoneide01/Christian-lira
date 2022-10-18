@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+   
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#insert").click(function () {
+                var email = $("#email").val();
+                var nome = $("#nome").val();
+                var mensagem = $("#mensagem").val();
+
+                var dataString = "email=" + email + "&nome=" + nome + "&mensagem=" + mensagem + "&insert=";
+
+                if ($.trim(nome).length > 0 & $.trim(email).length > 0 & $.trim(mensagem).length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "envia.php",
+                        data: dataString,
+                        crossDomain: true,
+                        cache: false,
+                        beforeSend: function () {
+                            $("#status").text('Enviado mensagem...');
+
+                        },
+                        success: function (data) {
+
+                            if (data == "success") {
+                                $("#status").css({ "color": "green" });
+                                $("#status").text('Mensagem enviada :)');
+                            } else if (data == "error") {
+                                $("#status").css({ "color": "red" });
+                                $("#status").text('Preencha todos os campos');
+
+                            } else if (data == "error4") {
+                                $("#status").css({ "color": "red" });
+                                $("#status").text('Mensagem não enviada :(');
+                            }
+                        }
+                    });
+                } else {
+                    $("#status").css({ "color": "red" });
+                    $("#status").text('Preencha todos os campos');
+                    return false;
+                }
+            });
+        });
+    </script>
+
+
+
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilmar Zezilia Alves - Portfólio</title>
+    <meta name="keywords" content="Portfólio, Gilmar Zezilia Alves,Front End, Html, Css, JavaScript, Web Design, Developer Front End">
+    <meta name="description" content="Portfólio para mostrar minhas habilidades, projetos e experiências na area de front-End e Back-End">
+    <meta name="author" content= Nid Dev Front-End ">
+    <meta name="robots" content="index">
+
+    <!-- Social Meta Tags
+    Para o facebook (og-padrao para redes sociais)-->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Gilmar Zezilia Alves Dev Front-End">
+    <meta property="og:description" content="< Conheça mais sobre mim />">
+    <meta property="og:image" content="img/gilmarZAlves2.png">
+
+    <!-- Social Meta Tags
+    Para o Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://gilmaralves.dev.br/">
+    <meta property="twitter:title" content="Gilmar Zezilia Alves Dev Front-End">
+    <meta property="twitter:description" content="< Conheça mais sobre mim />">
+    <meta property="twitter:image" content="img/gilmarZAlves2.png">
+
+
+    <meta property="business:contact_data:country_name" content="BRASIL" />
+    <meta property="business:contact_data:website" content="" />
+    <meta property="business:contact_data:region" content="SP" />
+    <meta property="business:contact_data:email" content="christianlira70@gmail.com" />
+    <meta property="business:contact_data:phone_number" content="+5511954483680" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="css/keyframes.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="css/mediaScreen.css" media="screen">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon_io/android-chrome-192x192.png" />
+
+</head>
+
+
+<body>
+    <header class="content">
+        <div id="header">
+
+            <a id="logo" href="/">
+                &lsaquo; GZA /&rsaquo; 
+            </a>
+
+            <nav id="nav">
+                <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false"><span class="hamburguer"></span></button>
+                <ul id="menu" role="menu">
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#redes">Redes Sociais</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="sobre meio" id="sobre">
+
+            <div class="parte1">
+                <div class="separador">
+                    <h1 class="nome">Gilmar Zezilia Alves</h1>
+                </div>
+                <div class="sobreInf">
+
+                    <p> <i class="uil uil-location-pin-alt icons"></i>Pariquera-Açu, São Paulo - Brasil</p>
+                    <p><i class="uil uil-book-open icons"></i>Cursando Engenharia de Software</p>
+                    <p><i class="uil uil-calendar-alt icons"></i>10 / 1999</p>
+                    <figure class="skills">
+                        <img src="img/mysql_icon.svg">
+                        <img src="img/icons8-react-native-96.png">
+                        <img src="img/git.svg">
+                        <img src="img/html5.svg">
+                        <img src="img/javascript.svg">
+
+                        <img src="img/4745725_code_development_github_open-source_programming_icon.svg">
+                        <img src="img/css.svg">
+                        <img src="img/php.svg">
+
+
+
+
+                    </figure>
+                </div>
+            </div>
+
+            <div class="parte2">
+                <img src="img/undraw_journey_re_ec5q.svg" class="imgGil" alt="" srcset="">
+                <p>
+                    Amo programação e estou focado em ser Dev Front End, atualmente tenho conhecimentos das seguintes tecnologias: HTML, CSS, JAVASCRIPT, PHP, MYSQL, FIGMA, e estudando REACT.JS .
+                </p>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class=" meio">
+
+        <main class="projetos" id="projetos" data-anime="left">
+
+            <h1>PORTIFÓLIO</h1>
+            <div class="projetos">
+                <article class="meusprojetos">
+                    <div class="conteudo-projetos">
+                        <h3>Pesquisador de usuários do GitHub</h3>
+                        <span>Nesse projeto podemos pesquisar usuários cadastrados no gitHub.</span>
+                        <p>O que foi ultilizado : API do GitHub, React.Js, JavaScript !</p>
+                    </div>
+                </article>
+
+                <article class="meusprojetos">
+                    <div class="conteudo-projetos">
+                        <h3>CodeApp</h3>
+                        <span>CodeApp é uma rede social para troca De experiência emocional (Com +1 participação ).</span>
+                        <p>O que foi ultilizado : Html, Css, Php, Mysqli, PhpMailer !</p>
+                    </div>
+                </article>
+
+                <article class="meusprojetos">
+                    <div class="conteudo-projetos">
+                        <h3>Praticando</h3>
+                        <span>Site criado para práticar responsividade .</span>
+                        <p>O que foi ultilizado : Html, Css, slick biblioteca JavaScript (Feito a partir de um tutorial no youtube).</p>
+
+                    </div>
+                </article>
+                <article class="meusprojetos">
+                    <div class="conteudo-projetos">
+                        <h3>PARIQUERA-AÇU</h3>
+                        <span>Projeto criado para praticar a responsividade do site.</span>
+                        <p>O que foi ultilizado : Html, Css !</p>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+
+        <div class="roadmap" data-anime="left">
+
+            <div class="historicoCursos">
+                <h1>CURSOS</h1>
+                <p class="linha"></p>
+                <p class="linha2"></p>
+
+            </div>
+            <div class="historicoProfissao">
+                <h1>PROFISSÕES</h1>
+                <p class="linhaprofissoes"></p>
+                <p class="linhaprofissoes2"></p>
+            </div>
+        </div>
+
+        <div class="contatos" id="contato" data-anime="left">
+            <!-- 
+            <Estou disponível para novos projetos e contratações no momento. Entre em contato comigo para que possamos marcar uma conversa 👋
+-->
+              <form action="" method="POST">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: Carlos">
+                <label for="nome">Email</label>
+                <input type="text" id="email" name="email" placeholder="seuemail@gmail.com">
+                <label for="nome">Mensagem</label>
+                <input type="text" id="mensagem" name="mensagem" placeholder="Olá Gilmar, estou entrando em contato por...">
+                <input class="button" type="button" id="insert" value="Enviar"/>
+            </form>
+            <p class="pstatus" id="status"></p>
+            <footer>
+                <div class="redesSociais" id="redes">
+                    <h4>GilmarAlves@gmail.com</h4>
+                    <h4>Gilmar Zezilia Alves </h4>
+
+                    <h4>(13)99795-4520</h4>
+
+                    <a href="https://github.com/GilmarAlves99" target="_blank"><i class="uil uil-github icons"></i></a>
+                    <a href="https://www.linkedin.com/in/gilmar-zezilia-alves-336610182/" target="_blank"><i class="uil uil-linkedin icons"></i></a>
+                </div>
+            </footer>
+
+        </div>
+
+    </div>
+
+    <script src="js/js-scroll.js"></script>
+
+    <script src="js/mobile-menu-navbar.js"></script>
+
+
+    <script src="js/script.js" type="text/javascript"></script>
+</body>
+
+</html>
